@@ -1,0 +1,14 @@
+{
+  "id": "0",
+  "name": "Rosa",
+  "species": "roja",
+  "image": "http://url",
+  "types":[
+    "tipo1",
+    "tipo2"
+  ],
+   "qualities":[
+    "calidad1",
+    "calidad2"
+  ]
+}
