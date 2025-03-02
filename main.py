@@ -27,7 +27,7 @@ def save_products(product: Product):
 
 @app.get("/products/images/{filename}")
 async def get_image_controller(filename: str):
-    return get_file(filename)
+    return await get_file(filename)
 
 @app.post("/products/upload/")
 async def upload_image(file: UploadFile = File(...)):

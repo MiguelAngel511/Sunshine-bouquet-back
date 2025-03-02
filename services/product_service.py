@@ -3,12 +3,13 @@ import os
 from itertools import product
 from typing import List
 
-from fastapi import UploadFile
+from fastapi import UploadFile, HTTPException
 from starlette.responses import JSONResponse, FileResponse
 
 from models.product import Product
 
 DATA_FILE = "database/data.json"
+HOST="http://localhost:8000"
 IMAGES_FILE_PATH = "images"
 def load_products()->List[Product]:
     ensure_database()
@@ -28,7 +29,7 @@ def save_data(data:Product):
     products=load_products()
     for i in products:
         if i.id==data.id:
-            raise Exception("El id ingresado ya existe")
+            raise HTTPException(status_code=400, detail="ID ya existe")
     ensure_database()
     products.append(data)
     with open(DATA_FILE, "w", encoding="utf-8") as file:
@@ -39,7 +40,7 @@ async def upload_product_image(file: UploadFile):
     file_location = os.path.join(IMAGES_FILE_PATH, file.filename)
     with open(file_location, "wb") as f:
         f.write(await file.read())
-    return {"message": "Imagen subida con éxito", "filename": file.filename}
+    return {"image": HOST+"/products/images/"+file.filename}
 
 async def get_file(filename: str):
     file_path = os.path.join(IMAGES_FILE_PATH, filename)
