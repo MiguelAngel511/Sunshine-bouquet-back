@@ -54,5 +54,29 @@
         "qualities": [
             "rrrtw"
         ]
+    },
+    {
+        "id": "1",
+        "name": "rosa",
+        "species": "ambar",
+        "image": "http://localhost:8000/products/images/BouquetDeDoceRosasRosadas.webp",
+        "types": [
+            "ftrd"
+        ],
+        "qualities": [
+            "rtyuu"
+        ]
+    },
+    {
+        "id": "35",
+        "name": "rosa",
+        "species": "rosada",
+        "image": "http://localhost:8000/products/images/BouquetDeDoceRosasRosadas.webp",
+        "types": [
+            "ftrd"
+        ],
+        "qualities": [
+            "rtyuu"
+        ]
     }
 ]
